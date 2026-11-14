@@ -13,9 +13,41 @@ date.format("DD MMM YYYY", persianDigits: true)  // ۰۷ اسفند ۱۴۰۳
 try JalaliX.parseJalali("1403/12/07").toISODate()  // 2025-02-25
 ```
 
+## Requirements
+
+- Swift 5.9+
+- macOS 13+, iOS 16+, tvOS 16+, watchOS 9+
+
 ## Install
 
-Swift Package Manager — add this package and `import JalaliX`.
+### Swift Package Manager
+
+In `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/jalalix/swift.git", from: "0.1.0")
+]
+```
+
+Then add the product to your target:
+
+```swift
+.target(
+    name: "YourApp",
+    dependencies: [
+        .product(name: "JalaliX", package: "swift")
+    ]
+)
+```
+
+```swift
+import JalaliX
+```
+
+### Xcode
+
+**File → Add Package Dependencies…** → paste `https://github.com/jalalix/swift.git` → version **Up to Next Major** from `0.1.0`.
 
 ## Months
 
