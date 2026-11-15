@@ -29,7 +29,7 @@ try JalaliX.parseJalali("1403/12/07").toISODate() // 2025-02-25
 ```swift
 // Package.swift
 dependencies: [
-    .package(url: "https://github.com/jalalix/swift.git", from: "0.1.0")
+    .package(url: "https://github.com/jalalix/swift.git", from: "0.2.0")
 ]
 ```
 
@@ -48,7 +48,7 @@ import JalaliX
 
 ### Xcode
 
-**File → Add Package Dependencies…** → `https://github.com/jalalix/swift.git` → **Up to Next Major** from `0.1.0`.
+**File → Add Package Dependencies…** → `https://github.com/jalalix/swift.git` → **Up to Next Major** from `0.2.0`.
 
 ## Usage
 

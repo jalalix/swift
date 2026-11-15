@@ -117,7 +117,8 @@ final class GoldenTests: XCTestCase {
 			}
 
 			let unix = (c["unixMs"] as! NSNumber).int64Value
-			let d = try JalaliX.create(unixMs: unix).setTimezone(c["withTimezone"] as! String)
+			let timezone = c["withTimezone"] as! String
+			let d = try JalaliX.create(unixMs: unix).setTimezone(timezone)
 			let expect = c["expect"] as! [String: Any]
 			XCTAssertEqual(d.format("YYYY/MM/DD"), expect["jalaliSlash"] as? String, id)
 
@@ -150,7 +151,7 @@ final class GoldenTests: XCTestCase {
 			let id = c["id"] as! String
 
 			if let sfy = c["setFullYear"] as? [String: Any] {
-				_ = d.setFullYear(sfy["year"] as! Int, sfy["month0"] as! Int, sfy["day"] as! Int)
+				_ = d.setFullYear(sfy["year"] as! Int, (sfy["month0"] as! Int), (sfy["day"] as! Int))
 				let expect = c["expect"] as! [String: Any]
 				XCTAssertEqual(d.getMonth(), expect["getMonth"] as? Int, id)
 				XCTAssertEqual(d.format("YYYY/MM/DD"), expect["formatYYYYMMDD"] as? String, id)

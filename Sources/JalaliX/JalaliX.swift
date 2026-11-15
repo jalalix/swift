@@ -92,7 +92,7 @@ public final class JalaliX {
 	private func wallToUtc(y: Int, m: Int, d: Int, h: Int, mi: Int, s: Int, msVal: Int) -> Int64 {
 		var cal = Calendar(identifier: .gregorian)
 		cal.timeZone = TimeZone(secondsFromGMT: 0)!
-		var comps = DateComponents(year: y, month: m, day: d, hour: h, minute: mi, second: s)
+		let comps = DateComponents(year: y, month: m, day: d, hour: h, minute: mi, second: s)
 		let wantDate = cal.date(from: comps) ?? Date(timeIntervalSince1970: 0)
 		let want = Int64(wantDate.timeIntervalSince1970 * 1000)
 		var utc = want
@@ -103,7 +103,7 @@ public final class JalaliX {
 			var wallCal = Calendar(identifier: .gregorian)
 			wallCal.timeZone = tz
 			let p = wallCal.dateComponents([.year, .month, .day, .hour, .minute, .second], from: probe)
-			var gotComps = DateComponents(year: p.year, month: p.month, day: p.day, hour: p.hour, minute: p.minute, second: p.second)
+			let gotComps = DateComponents(year: p.year, month: p.month, day: p.day, hour: p.hour, minute: p.minute, second: p.second)
 			let gotDate = cal.date(from: gotComps) ?? Date(timeIntervalSince1970: 0)
 			let got = Int64(gotDate.timeIntervalSince1970 * 1000)
 			let diff = want - got
